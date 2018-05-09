@@ -1,0 +1,69 @@
+﻿@model IEnumerable<HumberShores.Models.HOSPITAL_VACANCY>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_headFoot.cshtml";
+}
+
+<div class="container">
+    <ul class="breadcrumb">
+        <li><a href="@Url.Action("Index", "Home")">Home</a></li>
+        @if (User.IsInRole("User"))
+        {
+            <li><a href="@Url.Action("UserHome", "Home")">User Home</a></li>
+        }
+        else
+        {
+            <li><a href="@Url.Action("AdminHome", "Home")">Administrator Home</a></li>
+        }
+    </ul>
+    <h2>Current Vacancies</h2>
+        <div class="col-lg-6 col-lg-offset-3">
+            @foreach (var item in Model)
+            {
+                <div id="@item.vacancy_id">
+                    <div>
+                        <p><strong>Vacancy ID:</strong></p><p>@item.vacancy_id</p>
+                    </div>
+                    <div>
+                        <p><strong>Job Title:</strong></p><p>@item.job_title</p>
+                    </div>
+                    <div>
+                        <p><strong>Apply Due Date:</strong></p><p>@item.apply_due_date</p>
+                    </div>
+                    <div>
+                        <p><strong>Description:</strong></p><p>@item.description</p>
+                    </div>
+                    <div>
+                        <p><strong>Department ID:</strong></p><p>@item.description_id</p>
+                    </div>
+                    <div>
+                        <p><strong>Job Type:</strong></p><p>@item.job_type</p>
+                    </div>
+                    <div>
+                        <p><strong>Number of Vacancies:</strong></p><p>@item.no_of_vacancy</p>
+                    </div>
+                    @*<div>
+                            <p><strong>Contact Email:</strong></p><p>@item.contact_email</p>
+                        </div>*@
+                </div>
+
+
+
+                <div>
+                    @if (User.IsInRole("Admin"))
+    {
+                <p class="serviceBtn annCrud"> 
+                    @Html.ActionLink("Edit", "Edit", "HOSPITAL_VACANCY", new { id = item.vacancy_id }, null)</p>
+                @: |
+                <p class="serviceBtn annCrud">
+                    @Html.ActionLink("Delete", "Delete", "HOSPITAL_VACANCY", new { id = item.vacancy_id }, null)
+                </p>
+
+                    }
+
+                </div>
+                <hr />
+            }
+        </div>
+    </div>

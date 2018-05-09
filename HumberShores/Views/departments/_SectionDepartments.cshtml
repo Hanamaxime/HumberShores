@@ -1,0 +1,11 @@
+﻿@model IEnumerable<HumberShores.Models.department>
+
+@Html.Partial("_SectionDescription", Model.FirstOrDefault().property_sections)
+
+<h4>Departments within this section:</h4>
+@foreach (var item in Model)
+{
+
+    @Html.Partial("~/Views/departments/_ShowDepartment.cshtml", item)
+
+}

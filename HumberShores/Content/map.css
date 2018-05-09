@@ -1,0 +1,38 @@
+﻿#changeDept {
+    margin-bottom: 3em
+}
+
+#Layer_1 {
+    width: 100%;
+}
+
+#MainRoads > text {
+    font: 500 24px OpenSans, 'Open Sans';
+}
+
+#MainRoads:hover > text {
+    font:700 26px OpenSans, 'Open Sans';
+}
+
+#map:hover > *:not(#HumberShores) {
+    opacity: 0.7;
+}
+
+#HumberShores:hover > *:not(:hover) {
+    opacity: 0.3;
+}
+
+.confirmation {
+    margin-top: 3em;
+}
+
+#temp {
+    display: none;
+    position: absolute;
+    padding: 1em;
+    width: 250px;
+    font-size: small;
+    z-index: 20;
+    background-color: lightgray;
+    opacity: 1;
+}
